@@ -56,6 +56,19 @@ public class CampaignSmokeTest : MonoBehaviour
     {
         yield return Capture("01-menu");
         var game = GameManager.Instance;
+        for(int level=1;level<=4;level++)
+        {
+            UnityEngine.UI.Button option = null;
+            foreach(var candidate in FindObjectsOfType<UnityEngine.UI.Button>())
+                if(candidate.GetComponentInChildren<UnityEngine.UI.Text>().text.Contains("1-"+level)) option = candidate;
+            Check(option != null,"menu offers level 1-"+level);
+            if(option != null)
+            {
+                option.onClick.Invoke(); yield return null;
+                Check(SceneManager.GetActiveScene().name == "1-"+level && game.stage == level && game.lives == 3 && game.score == 0 && game.coins == 0,"level selector starts a fresh session at 1-"+level);
+            }
+            game.Menu(); yield return null;
+        }
         game.NewGame(); yield return null; yield return new WaitForSeconds(.3f);
         Check(game.lives == 3 && game.score == 0 && game.stage == 1, "new game resets session");
         yield return Capture("02-superficie");

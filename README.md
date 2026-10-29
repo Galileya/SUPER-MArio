@@ -4,6 +4,8 @@ Proyecto académico desarrollado como fork de [Jesusbautistah/SUPER-MArio](https
 
 **Repositorio de entrega:** https://github.com/Galileya/SUPER-MArio
 
+**Juego completo para Windows:** [descargar ZIP](https://github.com/Galileya/SUPER-MArio/releases/latest/download/SuperMario-Galileya-Windows.zip). Extraer todo el archivo y abrir `SuperMario/Mario.exe`.
+
 ## Ejecutar
 
 1. Instalar **Unity 6000.3.16f1** desde Unity Hub.
@@ -19,7 +21,7 @@ Para generar el comprimido de entrega, ejecutar `python Tools/package_windows.py
 
 | Requisito | Implementación |
 | --- | --- |
-| Menú interactuable | Opciones con mouse o flechas y Enter. Ambas inician una partida individual, como permite la consigna. |
+| Menú interactuable | Selector de los cuatro niveles con mouse o flechas y Enter. Cada opción inicia el nivel elegido con tres vidas y contadores nuevos. |
 | Sonido ambiente | Temas originales distintos para superficie, subterráneo, agua y castillo. |
 | SFX | Salto, pisotón, moneda, powerup, daño, muerte, natación, fuego, interruptor, final y Game Over. |
 | Contadores | Tiempo restante, puntaje, monedas, vidas y mundo. |
@@ -33,6 +35,8 @@ Para generar el comprimido de entrega, ejecutar `python Tools/package_windows.py
 | Pausa | Escape suspende la física y el reloj; permite continuar o volver al menú. |
 
 **Ruta:** Menú → 1-1 superficie → 1-2 subterráneo → 1-3 acuático → 1-4 castillo → Victoria.
+
+El menú permite comenzar directamente en cualquiera de los cuatro niveles. Desde el nivel elegido se continúa por los siguientes niveles de la campaña. Cada selección inicia una partida nueva con tres vidas, cero monedas y cero puntos.
 
 Los niveles de referencia reconstruyen la distribución de bloques; las físicas, tiempos, grupos de enemigos y transiciones están adaptados a este proyecto. No se afirma equivalencia píxel por píxel con la ROM. Las tuberías de la zona warp continúan la campaña requerida.
 

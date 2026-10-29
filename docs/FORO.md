@@ -4,7 +4,7 @@ Antes de publicar, añade tu nombre y ajusta especialmente la opinión personal 
 
 ## Características agregadas
 
-El fork incorpora un menú inicial que se puede usar con mouse o teclado, música para cada ambiente y efectos de salto, pisotón, powerup, daño y muerte. También muestra tiempo restante, puntaje, monedas y vidas. El puntaje aumenta al recoger monedas y eliminar enemigos, y al reunir 100 monedas se obtiene una vida adicional.
+El fork incorpora un menú inicial que permite elegir cualquiera de los cuatro niveles con mouse o teclado, música para cada ambiente y efectos de salto, pisotón, powerup, daño y muerte. También muestra tiempo restante, puntaje, monedas y vidas. El puntaje aumenta al recoger monedas y eliminar enemigos, y al reunir 100 monedas se obtiene una vida adicional.
 
 La campaña pasa del nivel de superficie a un escenario subterráneo basado en el mapa original 1-2, después a un nivel acuático basado en 2-2 y finalmente a un castillo de diseño propio. El nivel acuático permite nadar con impulsos y contiene enemigos animados. En el castillo hay lava, plataformas móviles y un encuentro con Bowser: al alcanzar el hacha, el puente se derrumba. Se agregó una escena de Game Over cuando se terminan las vidas y una pantalla de victoria al completar la campaña.
 

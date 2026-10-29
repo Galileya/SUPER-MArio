@@ -53,7 +53,13 @@ public class GameManager : MonoBehaviour
         if (timeRemaining <= 0) player.Death();
     }
     public void TogglePause() { Paused = !Paused; Time.timeScale = Paused ? 0 : 1; }
-    public void NewGame() { CancelInvoke(); lives = 3; coins = score = 0; LoadLevel(1, 1); }
+    public void NewGame() { StartAtLevel(1); }
+    public void StartAtLevel(int selectedStage)
+    {
+        if (selectedStage < 1 || selectedStage > 4) return;
+        CancelInvoke(); lives = 3; coins = score = 0;
+        LoadLevel(1, selectedStage);
+    }
     public void Menu() { CancelInvoke(); Time.timeScale = 1; SceneManager.LoadScene("Menu"); }
     public void GameOver() { CancelInvoke(); Time.timeScale = 1; SceneManager.LoadScene("GameOver"); }
     public void LoadLevel(int world, int stage)

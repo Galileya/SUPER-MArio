@@ -20,6 +20,7 @@ with ZipFile(output, "w", ZIP_DEFLATED, compresslevel=6) as archive:
 
 1. Extraer TODO el archivo ZIP en una carpeta.
 2. Abrir Mario.exe. Conservar sus carpetas y DLL junto al ejecutable.
+3. Elegir el nivel en el menu con las flechas y Enter o con el mouse.
 
 Controles: A/D o flechas para mover; Espacio para saltar o nadar;
 Escape para pausar; flechas arriba/abajo y Enter para el menu.

@@ -4,7 +4,7 @@ Entorno: Windows, Unity 6000.3.16f1, exportación StandaloneWindows64 de desarro
 
 ## Resultado observado
 
-Validación realizada el **29 de octubre de 2026**: compilación de Windows exitosa, comprobación de escenas y audio exitosa, y **14 de 14 comprobaciones de ejecución aprobadas**. Las capturas del repositorio proceden del ejecutable y se revisaron visualmente.
+Validación realizada el **29 de octubre de 2026**: compilación de Windows exitosa, comprobación de escenas y audio exitosa, y **22 de 22 comprobaciones de ejecución aprobadas**, incluidas las cuatro opciones del selector de niveles. Las capturas del repositorio proceden del ejecutable y se revisaron visualmente.
 
 ## Comprobaciones de editor
 
@@ -43,7 +43,9 @@ Este modo recorre los siguientes casos y genera ocho imágenes desde la cámara 
 13. Game Over al llegar a cero vidas.
 14. Reinicio completo de contadores al reintentar.
 
-El informe local se escribe en `TestResults/campaign-smoke.txt` y el proceso devuelve 0 cuando los 14 casos pasan. El archivo de log contiene el resultado de cada caso. `Builds`, `TestResults` y los logs locales no se suben a Git.
+Además se comprueban las cuatro opciones del selector y que cada botón abra el nivel correcto con una sesión nueva: **22 comprobaciones en total**.
+
+El informe local se escribe en `TestResults/campaign-smoke.txt` y el proceso devuelve 0 cuando todos los casos pasan. El archivo de log contiene el resultado de cada caso. `Builds`, `TestResults` y los logs locales no se suben a Git.
 
 ## Alcance
 

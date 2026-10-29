@@ -12,6 +12,8 @@ public class GameScreen : MonoBehaviour
     private Text score, coins, world, timer, first, second;
     private GameObject pause;
     private int selection;
+    private Text[] levelOptions;
+    private readonly string[] levelNames = { "1-1 · SUPERFICIE", "1-2 · SUBTERRÁNEO", "1-3 · ACUÁTICO", "1-4 · CASTILLO DE BOWSER" };
     private readonly Color ink = new Color(.045f,.065f,.12f,.96f);
     private void Awake()
     {
@@ -34,6 +36,7 @@ public class GameScreen : MonoBehaviour
         foreach (Transform child in root) Destroy(child.gameObject);
         canvas.worldCamera = Camera.main;
         selection = 0;
+        levelOptions = null;
         var game = GameManager.Instance;
         if (game.Playing)
         {
@@ -53,6 +56,20 @@ public class GameScreen : MonoBehaviour
         {
             bool menu = scene.name == "Menu";
             bool victory = scene.name == "Victory";
+            if(menu)
+            {
+                Label(root,new Rect(120,35,1040,165),"SUPER\nMARIO BROS.",60,new Color(1,.82f,.35f));
+                Label(root,new Rect(190,220,900,45),"ELIGE EL NIVEL QUE QUIERES JUGAR",23);
+                levelOptions = new Text[4];
+                for(int i=0;i<4;i++)
+                {
+                    int level = i+1;
+                    levelOptions[i] = Button(root,new Rect(370,295+i*72,540,56),levelNames[i],() => game.StartAtLevel(level));
+                }
+                Label(root,new Rect(80,605,1120,35),"↑ ↓: elegir     ENTER: jugar     ·     También puedes hacer clic",18);
+                Label(root,new Rect(80,647,1120,35),"A D / ← →: mover     ESPACIO: saltar / nadar     ESC: pausa",18);
+                return;
+            }
             Label(root,new Rect(120,80,1040,180),menu ? "SUPER\nMARIO BROS." : victory ? "¡REINO RESCATADO!" : "GAME OVER",64,new Color(1,.82f,.35f));
             Label(root,new Rect(190,280,900,50),menu ? "CUATRO MUNDOS · UNA AVENTURA" : $"PUNTAJE FINAL   {game.score:000000}",23);
             first = Button(root,new Rect(420,370,440,58),"",game.NewGame);
@@ -73,6 +90,14 @@ public class GameScreen : MonoBehaviour
             world.text = $"MUNDO\n1-{game.stage}";
             timer.text = $"TIEMPO\n{Mathf.CeilToInt(game.timeRemaining):000}";
             pause.SetActive(game.Paused);
+            return;
+        }
+        if(levelOptions != null)
+        {
+            if(Input.GetKeyDown(KeyCode.UpArrow)) selection = (selection+3)%4;
+            if(Input.GetKeyDown(KeyCode.DownArrow)) selection = (selection+1)%4;
+            for(int i=0;i<4;i++) levelOptions[i].text = (selection==i ? "► " : "")+levelNames[i];
+            if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) game.StartAtLevel(selection+1);
             return;
         }
         if(first == null) return;
