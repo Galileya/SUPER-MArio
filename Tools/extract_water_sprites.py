@@ -5,7 +5,7 @@ from pathlib import Path
 from PIL import Image
 
 root = Path(__file__).resolve().parents[1]
-im = Image.open(root / 'Temp/References/2-2.png').convert('RGBA')
+im = Image.open(root / 'ReferenceMaps/2-2.png').convert('RGBA')
 dest = root / 'Assets/Sprites'
 blue = (32, 56, 236)
 def save(name, box):

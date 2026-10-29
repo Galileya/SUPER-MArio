@@ -73,5 +73,6 @@ crashlytics-build.properties
 /unity-*.log
 /Builds/
 /TestResults/
+/ReferenceMaps/
 *.slnx
 /Assets/Resources/PerformanceTestRun*.json*

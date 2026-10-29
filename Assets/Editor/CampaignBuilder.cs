@@ -102,4 +102,19 @@ public static class CampaignBuilder
             .Where(n => File.Exists("Assets/Scenes/" + n + ".unity"))
             .Select(n => new EditorBuildSettingsScene("Assets/Scenes/" + n + ".unity", true)).ToArray();
     }
+    [MenuItem("Mario/Repair traced underground floor")]
+    public static void RepairUndergroundFloor()
+    {
+        var scene = EditorSceneManager.OpenScene("Assets/Scenes/1-2.unity");
+        var existing = Object.FindObjectsOfType<Transform>();
+        string[] rows = File.ReadAllLines("Assets/Levels/1-2.txt");
+        for (int row=11;row<13;row++) for(int x=0;x<rows[row].Length;x++)
+        {
+            var position = new Vector3(x,12-row,0);
+            if(rows[row][x] == 'G' && !existing.Any(t => t.name.StartsWith("UndergroundBlock") && Vector3.Distance(t.position,position)<.05f))
+                Spawn("UndergroundBlock",x,position.y);
+        }
+        EditorSceneManager.SaveScene(scene);
+        EditorSceneManager.OpenScene("Assets/Scenes/Menu.unity");
+    }
 }
