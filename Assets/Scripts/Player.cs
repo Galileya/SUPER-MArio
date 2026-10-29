@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public bool big => bigRenderer.enabled;
     public bool dead => deathAnimation.enabled;
     public bool starpower { get; private set; }
+    private float immuneUntil;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        if (!dead && !starpower)
+        if (!dead && !starpower && Time.time >= immuneUntil)
         {
             if (big) {
                 Shrink();
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
+        if (dead) return;
+        GameAudio.Instance.Play("death");
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
         deathAnimation.enabled = true;
@@ -44,6 +47,7 @@ public class Player : MonoBehaviour
 
     public void Grow()
     {
+        GameAudio.Instance.Play("powerup");
         smallRenderer.enabled = false;
         bigRenderer.enabled = true;
         activeRenderer = bigRenderer;
@@ -56,6 +60,8 @@ public class Player : MonoBehaviour
 
     public void Shrink()
     {
+        immuneUntil = Time.time + 2f;
+        GameAudio.Instance.Play("damage");
         smallRenderer.enabled = true;
         bigRenderer.enabled = false;
         activeRenderer = smallRenderer;
@@ -91,6 +97,7 @@ public class Player : MonoBehaviour
 
     public void Starpower()
     {
+        GameAudio.Instance.Play("powerup");
         StartCoroutine(StarpowerAnimation());
     }
 

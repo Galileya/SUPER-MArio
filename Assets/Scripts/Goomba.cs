@@ -3,6 +3,14 @@ using UnityEngine;
 public class Goomba : MonoBehaviour
 {
     public Sprite flatSprite;
+    private bool defeated;
+    private bool Reward()
+    {
+        if (defeated) return false;
+        defeated = true;
+        GameManager.Instance.AddScore(100); GameAudio.Instance.Play("stomp");
+        return true;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,6 +37,7 @@ public class Goomba : MonoBehaviour
 
     private void Flatten()
     {
+        if (!Reward()) return;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<EntityMovement>().enabled = false;
         GetComponent<AnimatedSprite>().enabled = false;
@@ -38,6 +47,7 @@ public class Goomba : MonoBehaviour
 
     private void Hit()
     {
+        if (!Reward()) return;
         GetComponent<AnimatedSprite>().enabled = false;
         GetComponent<DeathAnimation>().enabled = true;
         Destroy(gameObject, 3f);
