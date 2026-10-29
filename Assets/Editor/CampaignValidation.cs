@@ -8,6 +8,18 @@ using UnityEngine;
 
 public static class CampaignValidation
 {
+    [MenuItem("Mario/Review original castle")]
+    public static void OpenCastleForReview()
+    {
+        EditorSceneManager.OpenScene("Assets/Scenes/1-4.unity");
+        var view = SceneView.lastActiveSceneView;
+        if(view != null)
+        {
+            view.in2DMode = true;
+            view.LookAt(new Vector3(105,6,0),Quaternion.identity,14,true);
+            view.Repaint();
+        }
+    }
     public static void RebuildCastleAndWindows()
     {
         CastleLevelBuilder.Build(); BuildWindows();
