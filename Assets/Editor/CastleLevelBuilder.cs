@@ -50,8 +50,29 @@ public static class CastleLevelBuilder
         axe.GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Simple;
         axe.AddComponent<BoxCollider2D>().isTrigger = true;
         var trigger = axe.AddComponent<BridgeSwitch>(); trigger.bridge = bridge; trigger.boss = boss;
-        CampaignBuilder.Spawn("Castle", 119, 1.5f);
+        BuildOriginalFortress();
         CampaignBuilder.Save("1-4"); CampaignBuilder.UpdateBuildSettings(); AssetDatabase.SaveAssets();
+    }
+    private static void BuildOriginalFortress()
+    {
+        var fortress = new GameObject("Original fortress - twin forge towers");
+        var stone = new Color(.45f,.35f,.55f);
+        var accent = new Color(1,.55f,.16f);
+        foreach (float x in new[] { 115f,122f })
+        {
+            var tower = CampaignBuilder.Tile("Custom stone tower", "HardBlock", new Vector2(x,4.5f),new Vector2(2,6),stone);
+            tower.transform.SetParent(fortress.transform);
+            foreach (float offset in new[] { -.65f,.65f })
+                CampaignBuilder.Tile("Battlement", "Brick", new Vector2(x+offset,8),new Vector2(.7f,1.5f),stone).transform.SetParent(fortress.transform);
+            CampaignBuilder.Tile("Tower window", "HardBlock", new Vector2(x,5.8f),new Vector2(.55f,1.1f),accent,false).transform.SetParent(fortress.transform);
+        }
+        var wall = CampaignBuilder.Tile("Fortress rear wall", "UndergroundBrick",new Vector2(118.5f,4),new Vector2(5,5),new Color(.2f,.17f,.3f),false);
+        wall.transform.SetParent(fortress.transform); wall.GetComponent<SpriteRenderer>().sortingOrder=-3;
+        foreach(float x in new[] { 117f,120f })
+            CampaignBuilder.Tile("Gate jamb", "HardBlock",new Vector2(x,3.5f),new Vector2(.5f,4),accent).transform.SetParent(fortress.transform);
+        CampaignBuilder.Tile("Gate lintel", "HardBlock",new Vector2(118.5f,5.7f),new Vector2(3.5f,.6f),accent).transform.SetParent(fortress.transform);
+        var door=CampaignBuilder.Tile("Recessed gate", "HardBlock",new Vector2(118.5f,3.3f),new Vector2(2.4f,3.6f),new Color(.055f,.04f,.1f),false);
+        door.transform.SetParent(fortress.transform); door.GetComponent<SpriteRenderer>().sortingOrder=-2;
     }
     private static void Ground(int first,int last)
     {

@@ -8,6 +8,10 @@ using UnityEngine;
 
 public static class CampaignValidation
 {
+    public static void RebuildCastleAndWindows()
+    {
+        CastleLevelBuilder.Build(); BuildWindows();
+    }
     public static void RepairAndBuildWindows()
     {
         CampaignBuilder.RepairUndergroundFloor(); BuildWindows();
@@ -30,7 +34,11 @@ public static class CampaignValidation
             Require(UnityEngine.Object.FindObjectOfType<Camera>() != null, path + " camera");
             foreach (var root in scene.GetRootGameObjects())
             foreach (var transform in root.GetComponentsInChildren<Transform>(true))
+            {
                 Require(GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(transform.gameObject) == 0, path + " missing script on " + transform.name);
+                if (path.EndsWith("1-4.unity"))
+                    Require(PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(transform.gameObject) != "Assets/Prefabs/Castle.prefab", "Original castle must not use the Castle prefab");
+            }
             if (!Path.GetFileName(path).StartsWith("1-")) continue;
             Require(UnityEngine.Object.FindObjectsOfType<Player>().Length == 1, path + " one player");
             Require(UnityEngine.Object.FindObjectOfType<SideScrolling>() != null, path + " scrolling camera");

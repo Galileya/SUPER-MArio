@@ -86,6 +86,8 @@ public class CampaignSmokeTest : MonoBehaviour
         player = FindObjectOfType<Player>();
         player.transform.position = new Vector3(94,3.2f); Camera.main.transform.position = new Vector3(101,6.5f,-10);
         yield return Capture("05-castillo");
+        player.transform.position = new Vector3(112,2.2f); Camera.main.transform.position = new Vector3(110,6.5f,-10);
+        yield return Capture("08-fortaleza-original");
         player.transform.position = new Vector3(110,3); Camera.main.transform.position = new Vector3(110,6.5f,-10);
         yield return new WaitForSeconds(5);
         Check(SceneManager.GetActiveScene().name == "Victory", "axe collapses bridge and ends campaign");
