@@ -13,6 +13,8 @@ Proyecto académico desarrollado como fork de [Jesusbautistah/SUPER-MArio](https
 
 El ejecutable local generado durante la validación está en `Builds/Windows/Mario.exe`. La carpeta completa es necesaria para ejecutarlo; no basta con copiar el `.exe`. Los binarios y la caché de Unity están excluidos de Git.
 
+Para generar el comprimido de entrega, ejecutar `python Tools/package_windows.py`. El resultado es `Builds/Entrega/SuperMario-Galileya-Windows.zip`: incluye el ejecutable, sus dependencias y las instrucciones. Extraer todo el ZIP antes de abrir `Mario.exe`.
+
 ## Mejoras implementadas
 
 | Requisito | Implementación |
