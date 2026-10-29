@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     public bool running => Mathf.Abs(velocity.x) > 0.25f || Mathf.Abs(inputAxis) > 0.25f;
     public bool sliding => (inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f);
     public bool falling => velocity.y < 0f && !grounded;
+    public bool swimming;
+    private float nextStroke;
 
     private void Awake()
     {
@@ -48,6 +50,21 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         HorizontalMovement();
+
+        if (swimming)
+        {
+            grounded = rigidbody.Raycast(Vector2.down);
+            if (grounded) velocity.y = Mathf.Max(0, velocity.y);
+            if (Input.GetButtonDown("Jump") && Time.time >= nextStroke)
+            {
+                velocity.y = 5.5f; nextStroke = Time.time + .18f;
+                GameAudio.Instance.Play("swim");
+            }
+            velocity.y = Mathf.Max(-3f, velocity.y - 6f * Time.deltaTime);
+            if (transform.position.y >= 11.5f) velocity.y = Mathf.Min(velocity.y, 0);
+            jumping = velocity.y > .1f;
+            return;
+        }
 
         grounded = rigidbody.Raycast(Vector2.down);
 
