@@ -1,0 +1,13 @@
+B.....BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB.......................BBBBBBBPPBBBBBBBBBBBBBBBBB...BB
+B.....................................................BB..BBBBBB..BBBB......BBBB........................................................................................PPBBBBBBB.............BB
+B.....................................................BB..BBBBBB..BBBB......BBBB........................................................................................PPBBBBBBB.............BB
+B........................................CCCC.......BB........BB...B....BB..........CCCCCC..............................................................................PPBBBBBBB.............BB
+B...................................................BB........BB...B....BB..............................................................................................PPBBBBBBB.............BB
+B......................................B.BBBB.......BB........BB...B....BB..........BBBBBB..............................................................................PPBBBBBBB.............BB
+B............................C.........BCB..BCB.....BB....CCCCBB...BC...BC..........BBBBBB.......................................................BBBBB...................PBBBBBBB.............BB
+B..........????........H.H.............BBB..BBB.....BBBB..BBBBBB...BBB..BB..B..B.............................PP..........................................................PBBBBBBB.............BB
+B....................H.H.H.H...H......................BB...............................................PP....PP...........BB...........HHH......................BBBBBBBBBBBBBBBBB.PP..PP..PP..BB
+B..................H.H.H.H.H...H.H....................BB...............................................PP....PP....PP.....BB..........HHHH......................BBBBBBBBBBBBBBBBB.PP..PP..PP..BB
+B................H.H.H.H.H.H...H.H.....................................................................PP....PP....PP.....BB.........HHHHH......................BBBBBBBBBBBBBBBBB.PP..PP..PP..BB
+GGGGGGGGGGGGGGGG.GGGGGGGGGGGG.GGGGGGGGGGGGGG...GGGGGGGGGGGG.GG.G.GGGGGGGGGGGGGGG...GGGGGGGGGGGGGGGG....GGGGGGGGGG.GGGGGG..GG..GGGGGGGGGGGG.......G.GGGGGG.......GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG...GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG..GG..GGGGGGGGGGGG.......GGGGGGGG.......GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
