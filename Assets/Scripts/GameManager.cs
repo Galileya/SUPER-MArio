@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     }
     private void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (scene.name.StartsWith("1-")) stage = int.Parse(scene.name.Substring(2));
         Time.timeScale = 1;
         Paused = Transitioning = false;
         timeRemaining = stage == 3 ? 300 : 400;
